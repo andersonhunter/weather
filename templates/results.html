@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}View Results{% endblock title %}
+{% block body %}
+<body class="analyzeparallax">
+{% block nav %} {{super()}} {% endblock nav %}
+{% block content %}
+<div class="homehead">
+    <h1>VIEW RESULTS</h1>
+</div>
+<p>
+    <div class="textbox">
+            <table>
+                <thead>
+                <tr>
+                    <th>Statistic Type</th>
+                    <th>Data</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Minimum:</td>
+                    <td id="min"></td>
+                </tr>
+                <tr>
+                    <td>Maximum:</td>
+                    <td id="max"></td>
+                </tr>
+                <tr>
+                    <td>1st Quartile:</td>
+                    <td id="first"></td>
+                </tr>
+                <tr>
+                    <td>Median:</td>
+                    <td id="med"></td>
+                </tr>
+                <tr>
+                    <td>Third Quartile:</td>
+                    <td id="third"></td>
+                </tr>
+                <tr>
+                    <td>Average:</td>
+                    <td id="avg"></td>
+                </tr>
+                <tr>
+                    <td>Standard Deviation:</td>
+                    <td id="sd"></td>
+                </tr>
+                <tr>
+                    <td>Variance:</td>
+                    <td id="variance"></td>
+                </tr>
+<!--                <tr>-->
+<!--                    <td>T-Statistic:</td>-->
+<!--                    <td id="t"></td>-->
+<!--                </tr>-->
+                </tbody>
+            </table>
+    <form action="/analyze-data">
+        <button type="submit">Analyze again?</button>
+    </form>
+    </div>
+</p>
+{% endblock content %}
+<div class="footer">{% block footer %} {{super()}} {% endblock footer %}</div>
+{% block javascript %}
+<script>
+    let data = {{data}};
+    let min;
+    let max;
+    let first;
+    let med;
+    let third;
+    let avg;
+    let sd;
+    let variance;
+<!--    let t;-->
+    for (var i = 0; i < data.length; i++) {
+        switch (i) {
+            case 0:
+                min = String(data[i] / 100);
+                document.getElementById("min").innerHTML = min.concat("&deg;F");
+                break;
+            case 1:
+                max = String(data[i] / 100);
+                document.getElementById("max").innerHTML = max.concat("&deg;F");
+                break;
+            case 2:
+                first = String(data[i] / 100);
+                document.getElementById("first").innerHTML = first.concat("&deg;F");
+                break;
+            case 3:
+                med = String(data[i] / 100);
+                document.getElementById("med").innerHTML = med.concat("&deg;F");
+                break;
+            case 4:
+                third = String(data[i] / 100);
+                document.getElementById("third").innerHTML = third.concat("&deg;F");
+                break;
+            case 5:
+                avg = String(data[i] / 100);
+                document.getElementById("avg").innerHTML = avg.concat("&deg;F");
+                break;
+            case 6:
+                sd = String(data[i] / 100);
+                document.getElementById("sd").innerHTML = sd.concat("&deg;F");
+                break;
+            case 7:
+                variance = String(data[i] / 100);
+                document.getElementById("variance").innerHTML = variance;
+                break;
+<!--            case 8:-->
+<!--                t = String(data[i] / 100);-->
+<!--                document.getElementById("t").innerHTML = t;-->
+<!--                break;-->
+    }};
+</script>
+{% endblock javascript %}
+</body>
+{% endblock body %}

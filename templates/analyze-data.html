@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block head %}
+{{super()}}
+{% endblock head %}
+{% block title %}Analyze Data {% endblock title %}
+{% block body %}
+<body class="analyzeparallax">
+{% block nav %} {{super()}} {% endblock nav %}
+{% block content %}
+<div class="homehead">
+    <h1>ANALYZE DATA</h1>
+</div>
+<p>
+    <div class="textbox">
+    Select the date range (starting at the most recent and ending in the past). <br><br>
+    Valid dates are from 1940 to the
+    present date. <br><br>
+    Then, enter the zip code and choose the type of temperature data to analyze.<br><br>
+    Press Submit when completed to view summary statistics on daily temps
+    within the range you have set.
+</div>
+</p>
+<p></p>
+<div class="analyzeform">
+    <form method="post" action="/get-data">
+        <label for="startdate">Start date:</label>
+        <input type="date" id="startdate" name="startdate"><br><br>
+        <label for="enddate">End date:</label>
+        <input type="date" id="enddate" name="enddate"><br><br>
+        <label for="location">ZIP Code:</label>
+        <input type="text" id="location" name="location"><br><br>
+        <label for="indices">Choose data type:</label>
+        <select name="indices" id="indices">
+            <option value="temperature_2m_max">Maximum Daily Temperature</option>
+            <option value="temperature_2m_min">Minimum Daily Tempterature</option>
+            <option value="temperature_2m_mean">Mean Daily Temperature</option>
+<!--            <option value="precipitation_sum">Precipitation Sum</option>-->
+<!--            <option value="rain_sum">Rain Sum</option>-->
+<!--            <option value="snowfall_sum">Snowfall Sum</option>-->
+        </select>
+        <input type="submit" onclick="return validate(event)">
+    </form>
+</div>
+
+{% endblock content %}
+<div class="footer">{% block footer %} {{super()}} {% endblock footer %}</div>
+<script>
+    function validate(e) {
+    let start = document.getElementById("startdate").value;
+    let end = document.getElementById("enddate").value;
+    let location = document.getElementById("location").value;
+    let indices = document.getElementById("indices").value;
+    let text;
+    if (indices == "temperature_2m_max") {indices = "Maximum Daily Temperature";}
+    else if (indices == "temperature_2m_min") {indices = "Minimum Daily Tempterature";}
+    else {indices = "Mean Daily Temperature";}
+    let msg = `You are about to analyze ${indices} data from ${start} to ${end} for ${location}. Please confirm to begin analysis, or press Cancel to reselect.`
+    if (!confirm(msg)) {e.preventDefault();}
+    }
+</script>
+{% endblock body %}
+</body>

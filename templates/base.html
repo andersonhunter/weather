@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{% block title %}{% endblock title %}</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"/>
+    <script></script>
+    {% endblock head %}
+  </head>
+  <body>
+    {% block body %}
+    {% block nav %}
+    <div class="topnav">
+      <div class="topnav-centered">
+      </div>
+<!--   Left aligned links    -->
+        <a href="/">&larr; Back</a>
+      <div class="topnav-right">
+        <a href="/">Logout</a>
+      </div>
+    </div>
+    <nav>
+      <a href="/" class="active">&#127968; Home</a>
+        <a href="/analyze-data">&#128202; Analyze Data</a>
+        <a href="/contact-faq">&#128232; Contact/FAQ</a>
+    </nav>
+    {% endblock nav %}
+    <div id="content">{% block content %}{% endblock content %}</div>
+    <div class="footer">{% block footer %}
+    <footer><div class="foottextbox">&copy; Copyright 2024 by Hunter Anderson.</div></footer>{% endblock footer %}
+    </div>
+    {% block javascript %}<script></script>{% endblock javascript %}
+  {% endblock body %}
+  </body>
+</html>

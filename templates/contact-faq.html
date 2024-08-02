@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}FAQ/Contact {% endblock title %}
+{% block body %}
+<body class="faqparallax">
+{% block nav %} {{super()}} {% endblock nav %}
+{% block content %}
+<div class="homehead">
+    <h1>FAQ/CONTACT</h1>
+</div>
+<p></p>
+    <div class="textbox">
+        <h2 style="text-align: center;margin: 1px;">FAQ</h2>
+    Q: Where does the app pull its data from?<br>
+    A: The app pulls historic data from the Open-Meteo weather API, which uses historic weather data from 1940 to the
+    present. This weather data uses ERA5 weather reanalysis implemented by ECMWF. To learn more:
+    <a href="https://open-meteo.com/en/docs/historical-weather-api">Open-Meteo API</a>,
+    <a href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels?tab=overview">
+        Copernicus
+    </a><br><br>
+    Q: What data does the app compute?<br>
+    A: The app will compute a 5-number summary (Sample minimum, IQR, sample maximum) as well as standard deviation, and
+    average.
+    <br><br>
+    Q: How does the app calculate these values?<br>
+    A: The app uses <a href="https://docs.python.org/3/library/statistics.html">Python's statistics module</a>.
+    The statistics are accurate to 2 decimal places. In order to circumvent Python's handling of float values,
+    data pulled from the API is rounded to two decimal places, multiplied by 100, and converted to an integer.
+    The app then converts the generated statistics back to float values, preserving the integrity of the data.<br><br>
+    Q: What kind of data can the app pull from the API?<br>
+    A: The app can currently process the maximum, minimum, and average daily temperatures within the user-selected
+    range at the user-selected zip code.<br><br>
+    Q: What does the future hold for the application?<br>
+    A: The app will soon be able to plot the climate data, and handle many different types of weather data.
+    Suggestions are welcome for further features, please submit inquiries below!<br><br>
+    Q: Why is a frog behind the FAQ?<br>
+    A: Thank you for asking! Each of the animals chosen as backgrounds for the pages are currently experiencing
+    <a href="https://science.nasa.gov/climate-change/evidence/">population declines due to climate change.</a><br><br>
+    Image attributions: <a href="https://www.flickr.com/photos/wildlife_diva/51954744086/">Polar Bear: Homepage</a>,
+    <a href="https://www.flickr.com/photos/timmelling/33430672098/">Penguin: Login/Sign Up Page</a>,
+    <a href="https://www.flickr.com/photos/matthew42/9496591698/">Bee: Delete Account Page</a>,
+    <a href="https://www.flickr.com/photos/myfwcmedia/8433542586/">Frog: Contact/FAQ Page</a>,
+    <a href="https://www.flickr.com/photos/jmaughn/42274660854/">Whale: Analyze/Review Data Page</a>.
+<p></p>
+        <h2 style="text-align: center;">Contact</h2>
+        <form>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name"><br><br>
+            <label for="email">Email Address:</label><br>
+            <input type="text" id="email"><br><br>
+            <label for="feedback">Feedback:</label><br>
+            <textarea id="feedback" rows="10" cols="50"></textarea><br>
+            <button type="submit">Send!</button>
+        </form>
+
+    </div>
+{% endblock content %}
+</body>
+{% endblock body %}

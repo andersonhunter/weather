@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block body %}
+{% block nav %}{% endblock %}
+<body class="homeparallax">
+{% block content %}
+<div class="head1">
+    <h1 class="homehead">CLIMATE TRACKER</h1>
+</div>
+<!--Body text-->
+<div class="textbox">
+    This app uses data pulled from the Open-Meteo weather API (based on data from the ERA5 weather data from 1940
+    to the present) to compute summary statistics. <p></p>
+    Users may register an account to save their statistics, or continue as a guest for free.
+    Guests cannot save statistics. Please view the FAQ for further info.
+    <!--Secondary navigation anchors-->
+<p>
+    <nav>
+    <a href="/login-signup">Login/Sign Up</a>
+    <a href="/analyze-data">Continue as Guest</a>
+    <a href="/contact-faq">Contact/FAQ</a>
+    </nav>
+</p>
+</div>
+{% endblock %}
+{% block footer %}<div class="footer"> {{super()}}</div> {% endblock %}
+{% endblock %}
+</body>

@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Colors */
+: root {
+    --textBox: #D9D9D9;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+body, html {
+    height: 100%;
+}
+
+.homeparallax {
+    background-image: url("polar_bear_homepage.jpg");
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.analyzeparallax {
+    background-image: url("whale-analyze.jpg");
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.faqparallax {
+    background-image: url("frog-faq.jpg");
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.head1 {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+.homehead {
+    color: #F55422;
+    font-family: "Kumbh Sans", serif;
+    font-size: 60px;
+    -webkit-text-stroke: 1px black;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Kumbh Sans", serif;
+    font-size: 60px;
+}
+
+.textbox {
+    border-radius: 25px;
+    background: #D9D9D9BF;
+    margin: auto;
+    width: 50%;
+    padding: 15px;
+    text-align: justify;
+}
+
+.foottextbox {
+    background: #D9D9D9BF;
+    margin: auto;
+    width: 50%;
+    padding: 15px;
+    text-align: justify;
+}
+
+.analyzeform {
+    border: 3px solid black;
+    border-radius: 25px;
+    padding: 8px;
+}
+
+body {
+    font-family: "Kumbh Sans", serif;
+    font-size: 20px;
+}
+
+nav {
+    row-wrap: flex;
+    margin: 20px;
+    text-align: center;
+    color: #0D0007;
+}
+
+nav a {
+    color: #0D0007;
+    padding: 14px 16px;
+    background-color: #D9D9D9;
+}
+
+nav a:visited {
+    color: #0D0007;
+}
+
+nav a:hover {
+    background-color: #0D0007;
+    color: white;
+}
+
+.topnav {
+    position: relative;
+    background-color: #D9D9D9BF;
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    text-align: center;
+    color: #0D0007;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #0D0007;
+    color: white;
+}
+
+.topnav-centered a {
+    float: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.topnav-right {
+    float: right;
+}
+
+@media screen and (max-width: 600px) {
+    .topnav a, .topnav-right {
+        float: none;
+        display: block;
+    }
+
+    .topnav-centered a {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+    }
+}
