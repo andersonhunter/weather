@@ -12,7 +12,7 @@
 </div>
 <p>
     <div class="textbox">
-    Select the date range (starting at the most recent and ending in the past). <br><br>
+    Select the date range (starting in the past, ending at most recent). <br><br>
     Valid dates are from 1940 to the
     present date. <br><br>
     Then, enter the zip code and choose the type of temperature data to analyze.<br><br>
@@ -23,10 +23,10 @@
 <p></p>
 <div class="analyzeform">
     <form method="post" action="/get-data">
-        <label for="startdate">Start date:</label>
-        <input type="date" id="startdate" name="startdate"><br><br>
-        <label for="enddate">End date:</label>
+        <label for="enddate">Start date:</label>
         <input type="date" id="enddate" name="enddate"><br><br>
+        <label for="startdate">End date:</label>
+        <input type="date" id="startdate" name="startdate"><br><br>
         <label for="location">ZIP Code:</label>
         <input type="text" id="location" name="location"><br><br>
         <label for="indices">Choose data type:</label>
