@@ -75,6 +75,13 @@ def getdata():
         subprocess.Popen(['python', './backend/ms_server.py'])
         subprocess.run(['python', './backend/ms_client.py', graph_data])
 
+        # Pipe the fetched data over to generate box plot
+        box_data = message.decode()
+        box_socket = context.socket(zmq.REQ)
+        box_socket.connect('tcp://localhost:5559')
+        print("Sending request to boxplot.py")
+        box_socket.send_string(box_data)
+
         # Pipe the fetched data over to analyze-data.py
         analyze_socket = context.socket(zmq.REQ)
         analyze_socket.connect("tcp://localhost:5556")
