@@ -1,3 +1,4 @@
+import flask
 from flask import Flask, render_template, request
 import os
 import zmq
@@ -70,10 +71,9 @@ def getdata():
         print(f'get-data.py sent back: {message.decode()}')
 
         # Pipe the fetched data over to generate a graph
-        graph_data = ', '.join(map(str, message.decode()))
-        print(f'Sending {graph_data} over to graphing server')
-        subprocess.Popen(['python', 'ms_server.py'])
-        subprocess.run(['python', 'ms_client.py', graph_data])
+        graph_data = message.decode()
+        subprocess.Popen(['python', './backend/ms_server.py'])
+        subprocess.run(['python', './backend/ms_client.py', graph_data])
 
         # Pipe the fetched data over to analyze-data.py
         analyze_socket = context.socket(zmq.REQ)

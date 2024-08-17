@@ -5,7 +5,7 @@ import os
 
 context = zmq.Context()
 socket = context.socket(zmq.REP)
-socket.bind("tcp://*:5555")
+socket.bind("tcp://*:5557")
 
 while True:
 
@@ -39,7 +39,8 @@ while True:
     plt.xticks(ticks=np.arange(len(y)))
 
     image_name = 'graph.png'
-    plt.savefig(image_name)
+    static_path = os.path.abspath('./static/graph.png')
+    plt.savefig(static_path)
 
     cwd = os.getcwd()
     decoded_msg = f"File saved at location: {cwd}/{image_name}"
